@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+<div class="currentprice">
+<span>Jeff Bezos is worth $</span>
+<span id="price"></span>
+<span>.</span>
+</div>
+
+<script>
+
+  fetch('https://api.iextrading.com/1.0/stock/amzn/quote/latestPrice')
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(myJson) {
+    document.getElementById("price").innerHTML = JSON.stringify(myJson)*82663241.640847085177226824769754; //Multiplicative factor based on https://www.forbes.com/profile/jeff-bezos/?list=rtb#78bcd4d11b23 as of 10/28/18
+  });
+
+</script>
+
+</body>
+</html> 
